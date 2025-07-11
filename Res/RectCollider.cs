@@ -10,25 +10,26 @@ namespace BiteTheBullet
     {
         public Vector2 size; //Might not be my brightest idea to convert everything to vec2
         private List<RectCollider> colliders;
-        public Rectangle temp;
+
+        float left => position.X;
+        float top => position.Y;
+        float right => position.X + size.X;
+        float bottom => position.Y + size.Y;
 
 
-        public RectCollider(Vector2 pos, Vector2 size, List<RectCollider> list)
+        public RectCollider(Vector2 position, Vector2 size, List<RectCollider> list)
         {
-            Point intPos = Utils.vectorToPoint(pos);
             this.size = size;
             Utils.addToCollider(this);
             colliders = list;
-            temp = new(intPos, new Point(120));
         }
 
         public override void Update(float deltaTime)
         {
-            temp = new(Utils.vectorToPoint(pos), Utils.vectorToPoint(size));
             base.Update(deltaTime);
         }
 
-        #region Colloision
+        #region Collision
 
         public bool collisionX(Vector2 velocity)
         {
@@ -52,34 +53,34 @@ namespace BiteTheBullet
 
         public bool IsTouchingLeft(RectCollider sprite, Vector2 velocity)
         {
-            return this.temp.Right + velocity.X > sprite.temp.Left &&
-              this.temp.Left < sprite.temp.Left &&
-              this.temp.Bottom > sprite.temp.Top &&
-              this.temp.Top < sprite.temp.Bottom;
+            return this.right + velocity.X > sprite.left &&
+              this.left < sprite.left &&
+              this.bottom > sprite.top &&
+              this.top < sprite.bottom;
         }
 
         public bool IsTouchingRight(RectCollider sprite, Vector2 velocity)
         {
-            return this.temp.Left + velocity.X < sprite.temp.Right &&
-              this.temp.Right > sprite.temp.Right &&
-              this.temp.Bottom > sprite.temp.Top &&
-              this.temp.Top < sprite.temp.Bottom;
+            return this.left + velocity.X < sprite.right &&
+              this.right > sprite.right &&
+              this.bottom > sprite.top &&
+              this.top < sprite.bottom;
         }
 
         public bool IsTouchingTop(RectCollider sprite, Vector2 velocity)
         {
-            return this.temp.Bottom + velocity.Y > sprite.temp.Top &&
-              this.temp.Top < sprite.temp.Top &&
-              this.temp.Right > sprite.temp.Left &&
-              this.temp.Left < sprite.temp.Right;
+            return this.bottom + velocity.Y > sprite.top &&
+              this.top < sprite.top &&
+              this.right > sprite.left &&
+              this.left < sprite.right;
         }
 
         public bool IsTouchingBottom(RectCollider sprite, Vector2 velocity)
         {
-            return this.temp.Top + velocity.Y < sprite.temp.Bottom &&
-              this.temp.Bottom > sprite.temp.Bottom &&
-              this.temp.Right > sprite.temp.Left &&
-              this.temp.Left < sprite.temp.Right;
+            return this.top + velocity.Y < sprite.bottom &&
+              this.bottom > sprite.bottom &&
+              this.right > sprite.left &&
+              this.left < sprite.right;
         }
 
         #endregion
