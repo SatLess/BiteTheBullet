@@ -24,27 +24,20 @@ public class Object
         set
         {
             _globalPosition = value;
-            if (_dad == null)
-            { 
-                _position = value;
-            }
+            _position = (_dad == null) ? value : _globalPosition - _dad.GlobalPosition; //ofsset
         }
     }
     public Vector2 Position
     {
         get
         {
-            return (_dad != null)? _globalPosition - _dad.GlobalPosition : _position;
+            return (_dad != null)? GlobalPosition - _dad.GlobalPosition : _position; //offset
         }
 
         set
         {
-            _position = new(10,0);
-
-            if (_dad == null)
-            {
-                _globalPosition = value;
-            }
+            _position = value;
+            _globalPosition = (_dad == null) ? value : _dad.GlobalPosition + _position;
         }
 
     }
@@ -75,7 +68,6 @@ public class Object
         if (father != null) _dad = father;
         //Update initial position values
         this.GlobalPosition = globalPosition;
-        this.Position = globalPosition; //Just so it sets the ofsset correctly
         
     }
 
@@ -94,30 +86,5 @@ public class Object
         Update(deltaTime);
     }
 
-    public void testPosition(float deltaTime)
-    {
-        KeyboardState keyState = Keyboard.GetState();
-        Vector2 direction = Vector2.Zero;
-        direction.X = Convert.ToInt16(keyState.IsKeyDown(Keys.D)) - Convert.ToInt16(keyState.IsKeyDown(Keys.A));
-        direction.Y = Convert.ToInt16(keyState.IsKeyDown(Keys.S)) - Convert.ToInt16(keyState.IsKeyDown(Keys.W));
-
-        Position += direction;
-        Debug.Write("Global " + GlobalPosition);
-        Debug.Write("\nLocal " + Position);
-    }
-
-    public void testChildPosition()
-    {
-        KeyboardState keyState = Keyboard.GetState();
-        Vector2 direction = Vector2.Zero;
-        direction.X = Convert.ToInt16(keyState.IsKeyDown(Keys.D)) - Convert.ToInt16(keyState.IsKeyDown(Keys.A));
-        direction.Y = Convert.ToInt16(keyState.IsKeyDown(Keys.S)) - Convert.ToInt16(keyState.IsKeyDown(Keys.W));
-
-        Position += direction;
-        Debug.Write("Global " + GlobalPosition);
-        Debug.Write("\n");
-        Debug.Write("Local " + Position);
-        Debug.Write("\n");
-    }
 
 }

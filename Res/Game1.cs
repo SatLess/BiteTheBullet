@@ -25,8 +25,6 @@ public class Game1: Core
 
     protected override void Update(GameTime gameTime)
     {
-
-        child.testChildPosition();
         parent.Update(deltaTime);
         base.Update(gameTime);
     }
