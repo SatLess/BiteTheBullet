@@ -4,18 +4,18 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-#nullable enable
 
 namespace BiteTheBullet;
 
 public class Object
 {
-    private Object? _dad;
+    private Object _dad = null;
     private Vector2 _globalPosition;
     private Vector2 _position;
 
     private List<Object> _children;
-    private List<Object> _abortedChildren;
+    private List<Object> _removedChildren;
+    private List<Object> _addedChildren;
 
     public Vector2 GlobalPosition
     {
@@ -44,15 +44,35 @@ public class Object
 
     }
 
+    public Object (Object father = null, bool addAfterCreation = true)
+    {
+        _children = new();
+        _removedChildren = new();
+        _addedChildren = new();
+        this._dad = father;
+        this.GlobalPosition = Vector2.Zero;
+
+        if (_dad != null && addAfterCreation) _dad.AddChild(this);
+    }
+
+    public Object(Vector2 globalPosition, Object father = null, bool addAfterCreation = true)
+    {
+        _children = new();
+        _removedChildren = new();
+        _addedChildren = new();
+        this._dad = father;
+        this.GlobalPosition = _globalPosition;
+        if (_dad != null && addAfterCreation) _dad.AddChild(this);
+    }
 
     protected void AddChild(Object child)
     {
-        _children.Add(child);
+        _addedChildren.Add(child);
     }
 
     protected void RemoveChild(Object child)
     {
-        _abortedChildren.Add(child);
+        _removedChildren.Add(child);
     }
 
     public virtual void Draw(float deltaTime)
@@ -69,20 +89,17 @@ public class Object
             item.Update(deltaTime);
         }
 
-        foreach (var child in _abortedChildren)
+        foreach (var child in _removedChildren)
         {
             _children.Remove(child);
         }
 
-    }
+        foreach (var child in _addedChildren)
+        {
+            _children.Add(child);
+        }
 
-    public Object(Vector2 globalPosition, Object? father)
-    {
-        _children = new();
-        _abortedChildren = new();
-        if (father != null) _dad = father;
-        this.GlobalPosition = globalPosition;
-        
+        childGlobal();
     }
 
     public void testGlobalPosition(float deltaTime)
@@ -97,10 +114,9 @@ public class Object
         Debug.Write("\n");
         Update(deltaTime);
     }
-
     public void childGlobal()
     {
-        Debug.Write("Child " + GlobalPosition);
+        Debug.Write(this.ToString() + GlobalPosition);
         Debug.Write("\n");
     }
 
