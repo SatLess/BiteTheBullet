@@ -1,26 +1,25 @@
-//using microsoft.xna.framework;
-//using microsoft.xna.framework.graphics;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-//namespace bitethebullet
-//{
-//    public class sprite: object
-//    {
-//        protected texture2d texture;
+namespace BiteTheBullet
+{
+    public class Sprite : Node
+    {
+        protected Texture2D Texture;
+        public Vector2 size;
 
 
-//        override public void draw(float deltatime)
-//        {
-//            core.spritebatch.draw(texture, globalposition, color.white);
-//        }
+        override public void Draw(float deltatime)
+        {
+            Core.SpriteBatch.Draw(Texture, GlobalPosition, Color.White);
+            base.Draw(deltatime);
+        }
 
-//        public sprite(texture2d sprite) : base()
-//        {
-//            texture = sprite;
-//        }
-//        public sprite(texture2d sprite, vector2 globalposition) : base(globalposition)
-//        {
-//            texture = sprite;
-//            this.globalposition = globalposition;
-//        }
-//    }
-//}
+        public Sprite(Texture2D texture, Node parent = null) : base(parent)
+        {
+           this.Texture = texture;
+           this.size = new(texture.Width, texture.Height);
+        }
+    }
+}

@@ -7,15 +7,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BiteTheBullet;
 
-public class Object
+public class Node
 {
-    private Object _dad = null;
+    private Node _dad = null;
     private Vector2 _globalPosition;
     private Vector2 _position;
 
-    private List<Object> _children;
-    private List<Object> _removedChildren;
-    private List<Object> _addedChildren;
+    private List<Node> _children;
+    private List<Node> _removedChildren;
+    private List<Node> _addedChildren;
 
     public Vector2 GlobalPosition
     {
@@ -44,7 +44,7 @@ public class Object
 
     }
 
-    public Object (Object father = null, bool addAfterCreation = true)
+    public Node (Node father = null, bool addAfterCreation = true)
     {
         _children = new();
         _removedChildren = new();
@@ -55,7 +55,7 @@ public class Object
         if (_dad != null && addAfterCreation) _dad.AddChild(this);
     }
 
-    public Object(Vector2 globalPosition, Object father = null, bool addAfterCreation = true)
+    public Node(Vector2 globalPosition, Node father = null, bool addAfterCreation = true)
     {
         _children = new();
         _removedChildren = new();
@@ -65,12 +65,12 @@ public class Object
         if (_dad != null && addAfterCreation) _dad.AddChild(this);
     }
 
-    protected void AddChild(Object child)
+    protected void AddChild(Node child)
     {
         _addedChildren.Add(child);
     }
 
-    protected void RemoveChild(Object child)
+    protected void RemoveChild(Node child)
     {
         _removedChildren.Add(child);
     }
@@ -98,8 +98,6 @@ public class Object
         {
             _children.Add(child);
         }
-
-        childGlobal();
     }
 
     public void testGlobalPosition(float deltaTime)
