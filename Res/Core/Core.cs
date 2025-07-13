@@ -77,8 +77,6 @@ namespace BiteTheBullet
 
             // Mouse is visible by default
             IsMouseVisible = true;
-
-
         }
 
         protected override void Initialize()
@@ -98,6 +96,8 @@ namespace BiteTheBullet
             base.Update(gameTime);
             deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds; 
         }
+
+
 
     }
 }
