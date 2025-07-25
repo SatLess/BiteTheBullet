@@ -7,7 +7,8 @@ namespace BiteTheBullet
     public class Sprite : Node
     {
         protected Texture2D Texture;
-        public Vector2 size;
+        
+        //public Vector2 size;
 
 
         override public void Draw(float deltatime)
@@ -19,7 +20,7 @@ namespace BiteTheBullet
         public Sprite(Texture2D texture, Node parent = null) : base(parent)
         {
            this.Texture = texture;
-           this.size = new(texture.Width, texture.Height);
+          // this.size = new(texture.Width, texture.Height);
         }
     }
 }

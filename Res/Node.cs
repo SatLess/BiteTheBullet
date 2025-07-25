@@ -43,6 +43,7 @@ public class Node
         }
 
     }
+    public LayerEnum Layer = LayerEnum.Default; //could refactor so only sprites have layers
 
     public Node (Node father = null, bool addAfterCreation = true)
     {
@@ -51,7 +52,7 @@ public class Node
         _addedChildren = new();
         this._dad = father;
         this.GlobalPosition = Vector2.Zero;
-
+        Load(); // WARNING Should children have priority?
         if (_dad != null && addAfterCreation) _dad.AddChild(this);
     }
 
@@ -65,6 +66,15 @@ public class Node
         if (_dad != null && addAfterCreation) _dad.AddChild(this);
     }
 
+    protected void SortByPriority()
+    {
+        if (_children.Count == 0)
+        {
+            return;
+        }
+        _children.Sort((a, b) => a.Layer.CompareTo(b.Layer));
+    }
+
     protected void AddChild(Node child)
     {
         _addedChildren.Add(child);
@@ -74,7 +84,7 @@ public class Node
     {
         _removedChildren.Add(child);
     }
-
+    public virtual void Load() { }
     public virtual void Draw(float deltaTime)
     {
         foreach (var item in _children)
@@ -93,10 +103,17 @@ public class Node
         {
             _children.Remove(child);
         }
+        if(_removedChildren.Count != 0) _removedChildren.Clear();
 
         foreach (var child in _addedChildren)
         {
             _children.Add(child);
+        }
+
+        if (_addedChildren.Count != 0)
+        {
+            _addedChildren.Clear();
+            SortByPriority();
         }
     }
 
@@ -107,15 +124,10 @@ public class Node
         direction.X = Convert.ToInt16(keyState.IsKeyDown(Keys.D)) - Convert.ToInt16(keyState.IsKeyDown(Keys.A));
         direction.Y = Convert.ToInt16(keyState.IsKeyDown(Keys.S)) - Convert.ToInt16(keyState.IsKeyDown(Keys.W));
 
-        GlobalPosition += direction;
+        GlobalPosition += direction * 10;
         Debug.Write("Global " + GlobalPosition);
         Debug.Write("\n");
         Update(deltaTime);
-    }
-    public void childGlobal()
-    {
-        Debug.Write(this.ToString() + GlobalPosition);
-        Debug.Write("\n");
     }
 
 }
