@@ -1,26 +1,26 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace BiteTheBullet
 {
-    public class Sprite: Object
+    public class Sprite : Node
     {
-        public Texture2D texture { get; protected set; }
-        public int layer = 0; //TODO need to create a layer component so children can have multiple layers
+        protected Texture2D Texture;
+        
+        //public Vector2 size;
 
-        override public void Draw(float deltaTime)
+
+        override public void Draw(float deltatime)
         {
-            Core.SpriteBatch.Draw(texture, position, Color.White);
+            Core.SpriteBatch.Draw(Texture, GlobalPosition, Color.White);
+            base.Draw(deltatime);
         }
 
-        public Sprite(string textureName, int layer = 0)
+        public Sprite(Texture2D texture, Node parent = null) : base(parent)
         {
-            texture = Core.Content.Load<Texture2D>(textureName);
-        }
-
-        public void setLayer(int newLayer)
-        {
-            layer = newLayer;
+           this.Texture = texture;
+          // this.size = new(texture.Width, texture.Height);
         }
     }
 }

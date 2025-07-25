@@ -1,26 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
 
-
 namespace BiteTheBullet
 {
-    public class Camera: Object
+    public class Camera : Node
     {
-        Vector2 origin = Vector2.Zero;
-        public Matrix translation { get; private set; }
-        public bool current = false;
-        public void setOrigin(Vector2 newOrigin) => origin = newOrigin;
+
+        private Vector2 _focus = new(640f,480f);
+
+        public bool Current = false;
+        public Matrix Translation { get; private set; }
+        public Vector2 Focus
+        {
+            set => _focus = value;
+            get => _focus;
+        }
 
         public override void Update(float deltaTime)
         {
-            float dx = position.X - 640 / 2;
-            float dy = position.Y - 480 / 2;
-            translation = Matrix.CreateTranslation(-dx, -dy, 0f);
+            float dx = GlobalPosition.X - _focus.X / 2f;
+            float dy = GlobalPosition.Y - _focus.Y / 2f;
+            Translation = Matrix.CreateTranslation(-dx, -dy, 0f);
             base.Update(deltaTime);
         }
 
-        public Camera()
+        public Camera(Node parent) : base(parent)
         {
-            Utils.setCurrentCamera(this);
+
         }
 
     }

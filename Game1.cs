@@ -1,49 +1,50 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System.Linq;
-
 
 namespace BiteTheBullet;
 
 public class Game1: Core
 {
     public Game1() : base("Here be Dragons", 640, 480){}
-    Matrix translation = Matrix.Identity;
-    Sprite spr;
-    Player p;
 
+    Matrix translation = Matrix.Identity;
+
+    Node Scene;
+    Sprite oi;
+    Sprite hey;
+    Camera cam;
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
+        
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
-        TestScene scene = new();
-        addScene(scene);
-        spr = new("rpg");
+        Scene = new();
+        Texture2D tex = Content.Load<Texture2D>("player");
+        oi = new(tex,Scene);
+        
+        hey = new(Content.Load<Texture2D>("test"),Scene);
+        hey.Position += new Vector2(20, 0);
+        oi.Layer = LayerEnum.Player;
+        cam = new(oi);
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
+        Scene.Update(deltaTime);
+        oi.testGlobalPosition(deltaTime);
         base.Update(gameTime);
-         scenes.First().Update(deltaTime);
-        spr.Update(deltaTime);
-        if (Utils.getCurrentCamera() != null) translation = Utils.getCurrentCamera().translation;
+        translation = cam.Translation;
     }
 
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         SpriteBatch.Begin(transformMatrix: translation);
-        spr.Draw(deltaTime);
-        scenes.First().Draw(deltaTime);
-       
+        Scene.Draw(deltaTime);
         SpriteBatch.End();
         base.Draw(gameTime);
     }
