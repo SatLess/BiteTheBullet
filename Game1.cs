@@ -38,7 +38,7 @@ public class Game1: Core
 
         //Test
         hey = new(tex);
-        hey.Position += new Vector2(20, 0);
+        hey.Position += new Vector2(300, 0);
         Scene.AddChild(hey);
 
         //Camera
@@ -50,8 +50,6 @@ public class Game1: Core
 
         //collider
         Collider col = new Collider(new(120,120), null, Content.Load<Texture2D>("test"));
-        Collider playerCol = new Collider(new(120,120), null, Content.Load<Texture2D>("test"));
-        pl.AddChild(playerCol);
         hey.AddChild(col);
     }
 

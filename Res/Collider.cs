@@ -62,7 +62,6 @@ namespace BiteTheBullet
 
         public override void Update(float deltaTime)
         {
-            CollisionInfo a = isTouching();
             foreach (var item in RemovedColliders)
             {
                 SceneColliders.Remove(item);
@@ -71,30 +70,61 @@ namespace BiteTheBullet
             base.Update(deltaTime);
         }
 
-        public CollisionInfo isTouching()
+        #region Colloision
+
+        public bool isTouchingX(Vector2 offset)
         {
-            CollisionInfo col;
-            col.Data = CollisionInfo.NONE;
-            foreach (var item in SceneColliders) //TODO optimize that
+            foreach (var item in SceneColliders)
             {
-                if (item == this) break;
-
-                 col.Data = CollisionInfo.NONE;
-                 col.Data = (Left < item.Right && Right > item.Left) ? col.Data | CollisionInfo.HORIZONTAL : col.Data;
-                 col.Data = (Top < item.Bottom && Bottom > item.Top) ? col.Data | CollisionInfo.VERTICAL : col.Data;
-                 col.Data = (Left < item.Left) ? col.Data | CollisionInfo.DIRECTION : col.Data;
-             
-                 if ((col.Data & 0b_011 | 0b_011) != 0) break;
-
+                if (item == this) continue;
+                if (IsTouchingLeft(item, offset) || IsTouchingRight(item, offset)) return true;
             }
-            return col;
+            return false;
         }
 
-        private bool AABB(Collider col) // TODO could use transform instead?
+        public bool isTouchingY(Vector2 offset)
         {
-            if (col == this) return false;
-            return Left < col.Right && Right > col.Left
-                && Top < col.Bottom && Bottom > col.Top;
+            foreach (var item in SceneColliders)
+            {
+                if (item == this) continue;
+                if (IsTouchingTop(item, offset) || IsTouchingBottom(item, offset)) return true;
+            }
+            return false;
         }
+
+        public bool IsTouchingLeft(Collider col, Vector2 offset)
+        {
+            return this.Right + offset.X > col.Left &&
+              this.Left < col.Left &&
+              this.Bottom > col.Top &&
+              this.Top < col.Bottom;
+        }
+
+        public bool IsTouchingRight(Collider col, Vector2 offset)
+        {
+            return this.Left + offset.X < col.Right &&
+              this.Right > col.Right &&
+              this.Bottom > col.Top &&
+              this.Top < col.Bottom;
+        }
+
+        public bool IsTouchingTop(Collider col, Vector2 offset)
+        {
+            return this.Bottom + offset.Y > col.Top &&
+              this.Top < col.Top &&
+              this.Right > col.Left &&
+              this.Left < col.Right;
+        }
+
+        public bool IsTouchingBottom(Collider col, Vector2 offset)
+        {
+            return this.Top + offset.Y < col.Bottom &&
+              this.Bottom > col.Bottom &&
+              this.Right > col.Left &&
+              this.Left < col.Right;
+        }
+
+        #endregion
+
     }
 }

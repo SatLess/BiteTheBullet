@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 
 namespace BiteTheBullet;
 
@@ -10,6 +11,7 @@ public class Player : Node
 {
     protected float Speed = 150f;
     public Vector2 Velocity = Vector2.Zero;
+    Collider pCol;
     Sprite _spr;
 
     public override void Draw(float deltaTime)
@@ -22,8 +24,9 @@ public class Player : Node
 
         Vector2 direction = GetMovementDirection();
         Velocity = direction * Speed * deltaTime;
-        // if (velocity.X != 0 && a.collisionX(velocity)) velocity.X = 0;
-        //  if (velocity.Y != 0 && a.collisionY(velocity)) velocity.Y = 0;
+        if (Velocity.X != 0 && pCol.isTouchingX(Velocity)) Velocity.X = 0;
+        if (Velocity.Y != 0 && pCol.isTouchingY(Velocity)) Velocity.Y = 0;
+
 
         GlobalPosition += Velocity;
 
@@ -44,5 +47,7 @@ public class Player : Node
     public Player(Texture2D tex, Vector2 GlobalPosition, Vector2 LocalPosition) : base(GlobalPosition)
     { 
         AddChild(new Sprite(tex));
+        pCol = new Collider(new(120, 120), null, Core.Content.Load<Texture2D>("test"));
+        AddChild(pCol);
     }
 }
