@@ -23,7 +23,7 @@ namespace BiteTheBullet
             base.Update(deltaTime);
         }
 
-        public Camera()
+        public Camera(): base()
         {
 
         }

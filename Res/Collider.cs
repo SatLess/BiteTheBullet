@@ -37,7 +37,7 @@ namespace BiteTheBullet
         static public List<Collider> RemovedColliders = new();
 
 
-        public Collider(Vector2 size, List<Collider> list, Texture2D debug = null)
+        public Collider(Vector2 size, List<Collider> list, Texture2D debug = null): base()
         {
             this.Size = size;
             //this._colliders = list;

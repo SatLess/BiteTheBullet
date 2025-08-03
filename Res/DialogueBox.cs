@@ -47,7 +47,7 @@ namespace BiteTheBullet
             base.Update(deltaTime);
         }
 
-        public DialogueBox(List<string> lines)
+        public DialogueBox(List<string> lines): base()
         {
             this._lines = lines;
             this.font = Core.Content.Load<SpriteFont>("Default");

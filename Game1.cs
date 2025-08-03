@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -45,12 +46,16 @@ public class Game1: Core
         cam = new();
         pl.AddChild(cam); // TODO need to do this inside player, but since its a quick way ill allow it
 
-        //dialogue
-        Scene.AddChild(new DialogueBox(HelloWorld));
-
         //collider
-        Collider col = new Collider(new(120,120), null, Content.Load<Texture2D>("test"));
+        Collider col = new Collider(new(120, 120), null, Content.Load<Texture2D>("test"));
         hey.AddChild(col);
+
+        //dialogue + trigger
+        Trigger t = new(col);
+        hey.AddChild(t);
+
+
+
     }
 
     protected override void Update(GameTime gameTime)

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\stuff\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:stuff\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,8 +15,20 @@
       "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:res\\collider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\res\\trigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:res\\trigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\res\\dialoguebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:res\\dialoguebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\res\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:res\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|c:\\users\\spiri\\desktop\\2025 projects\\bitethebullet\\res\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A48DC71F-C934-A25D-13D2-8486D15FBB1E}|BiteTheBullet.csproj|solutionrelative:res\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +38,95 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Sprite.cs",
+              "RelativeDocumentMoniker": "Res\\Sprite.cs",
+              "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Sprite.cs",
+              "RelativeToolTip": "Res\\Sprite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T06:43:47.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DialogueBox.cs",
+              "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\DialogueBox.cs",
+              "RelativeDocumentMoniker": "Res\\DialogueBox.cs",
+              "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\DialogueBox.cs",
+              "RelativeToolTip": "Res\\DialogueBox.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwDEAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T06:43:38.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Camera.cs",
+              "RelativeDocumentMoniker": "Res\\Camera.cs",
+              "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Camera.cs",
+              "RelativeToolTip": "Res\\Camera.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T06:43:28.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Trigger.cs",
+              "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Trigger.cs",
+              "RelativeDocumentMoniker": "Res\\Trigger.cs",
+              "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Trigger.cs",
+              "RelativeToolTip": "Res\\Trigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T06:37:49.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Game1.cs",
               "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Game1.cs",
               "RelativeDocumentMoniker": "Game1.cs",
               "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Game1.cs",
               "RelativeToolTip": "Game1.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCgAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAwwEAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-03T05:25:18.4Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Stuff\\Player.cs",
               "RelativeDocumentMoniker": "Stuff\\Player.cs",
               "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Stuff\\Player.cs",
               "RelativeToolTip": "Stuff\\Player.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwA0AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAcwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-03T05:24:47.365Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Collider.cs",
               "DocumentMoniker": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Collider.cs",
               "RelativeDocumentMoniker": "Res\\Collider.cs",
               "ToolTip": "C:\\Users\\spiri\\Desktop\\2025 Projects\\BiteTheBullet\\Res\\Collider.cs",
               "RelativeToolTip": "Res\\Collider.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAuwGkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAtwFAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-03T05:22:17.723Z",
               "EditorCaption": ""
