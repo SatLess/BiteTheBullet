@@ -26,7 +26,7 @@ public class Node
         set
         {
             _globalPosition = value;
-            _position = (_dad == null) ? value : _globalPosition - _dad.GlobalPosition; //ofsset
+            _position = (_dad == null) ? value : _globalPosition - _dad.GlobalPosition; //offsset
         }
     }
     public Vector2 Position
@@ -44,26 +44,23 @@ public class Node
 
     }
     public LayerEnum Layer = LayerEnum.Default; //could refactor so only sprites have layers
+    public Node Parent { private set => _dad = value; get => _dad; }
 
-    public Node (Node father = null, bool addAfterCreation = true)
+    public Node ()
     {
         _children = new();
         _removedChildren = new();
         _addedChildren = new();
-        this._dad = father;
         this.GlobalPosition = Vector2.Zero;
         Load(); // WARNING Should children have priority?
-        if (_dad != null && addAfterCreation) _dad.AddChild(this);
     }
 
-    public Node(Vector2 globalPosition, Node father = null, bool addAfterCreation = true)
+    public Node(Vector2 globalPosition, Node father = null)
     {
         _children = new();
         _removedChildren = new();
         _addedChildren = new();
-        this._dad = father;
         this.GlobalPosition = _globalPosition;
-        if (_dad != null && addAfterCreation) _dad.AddChild(this);
     }
 
     protected void SortByPriority()
@@ -75,12 +72,17 @@ public class Node
         _children.Sort((a, b) => a.Layer.CompareTo(b.Layer));
     }
 
-    protected void AddChild(Node child)
+    public void AddChild(Node child)
     {
+        if(child.Parent != null)
+        {
+            throw new Exception("Node already has a parent");
+        }
+        child.Parent = this; //Kind of hack, since you the Child itself could change their own parent.
         _addedChildren.Add(child);
     }
 
-    protected void RemoveChild(Node child)
+    public void RemoveChild(Node child)
     {
         _removedChildren.Add(child);
     }

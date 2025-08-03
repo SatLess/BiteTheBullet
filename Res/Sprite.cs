@@ -17,7 +17,7 @@ namespace BiteTheBullet
             base.Draw(deltatime);
         }
 
-        public Sprite(Texture2D texture, Node parent = null) : base(parent)
+        public Sprite(Texture2D texture)
         {
            this.Texture = texture;
           // this.size = new(texture.Width, texture.Height);

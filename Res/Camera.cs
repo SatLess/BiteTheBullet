@@ -5,7 +5,7 @@ namespace BiteTheBullet
     public class Camera : Node
     {
 
-        private Vector2 _focus = new(640f,480f);
+        private Vector2 _focus = new(640f,480f); // not rly focus though
 
         public bool Current = false;
         public Matrix Translation { get; private set; }
@@ -23,7 +23,7 @@ namespace BiteTheBullet
             base.Update(deltaTime);
         }
 
-        public Camera(Node parent) : base(parent)
+        public Camera()
         {
 
         }

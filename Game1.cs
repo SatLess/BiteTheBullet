@@ -24,18 +24,20 @@ public class Game1: Core
     {
         Scene = new();
         Texture2D tex = Content.Load<Texture2D>("player");
-        oi = new(tex,Scene);
+        oi = new(tex);
+        Scene.AddChild(oi);
         
-        hey = new(Content.Load<Texture2D>("test"),Scene);
+        hey = new(Content.Load<Texture2D>("test"));
         hey.Position += new Vector2(20, 0);
-        oi.Layer = LayerEnum.Player;
-        cam = new(oi);
+        oi.Layer = LayerEnum.Background;
+        cam = new();
+        Scene.AddChild(hey);
+        oi.AddChild(cam);
     }
 
     protected override void Update(GameTime gameTime)
     {
         Scene.Update(deltaTime);
-        oi.testGlobalPosition(deltaTime);
         base.Update(gameTime);
         translation = cam.Translation;
     }
