@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 
 namespace BiteTheBullet
 {
@@ -35,6 +36,7 @@ namespace BiteTheBullet
         public static new ContentManager Content { get; private set; }
 
         protected float deltaTime;
+        
 
         /// <summary>
         /// Creates a new Core instance.

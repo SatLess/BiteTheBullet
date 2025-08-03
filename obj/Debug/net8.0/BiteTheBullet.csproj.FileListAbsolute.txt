@@ -35,3 +35,4 @@ C:\Users\spiri\Desktop\2025 Projects\BiteTheBullet\bin\Debug\net8.0\Content\play
 C:\Users\spiri\Desktop\2025 Projects\BiteTheBullet\bin\Debug\net8.0\Content\png.xnb
 C:\Users\spiri\Desktop\2025 Projects\BiteTheBullet\bin\Debug\net8.0\Content\rpg.xnb
 C:\Users\spiri\Desktop\2025 Projects\BiteTheBullet\bin\Debug\net8.0\Content\test.xnb
+C:\Users\spiri\Desktop\2025 Projects\BiteTheBullet\bin\Debug\net8.0\Content\Default.xnb
