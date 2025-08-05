@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace BiteTheBullet;
 
@@ -10,9 +13,10 @@ public class Game1: Core
     Matrix translation = Matrix.Identity;
 
     Node Scene;
-    Sprite oi;
+    Player pl;
     Sprite hey;
     Camera cam;
+    List<string> HelloWorld = new();
 
     protected override void Initialize()
     {
@@ -23,16 +27,35 @@ public class Game1: Core
     protected override void LoadContent()
     {
         Scene = new();
+        //Dialogue Testing
+        HelloWorld.Add("hello");
+        HelloWorld.Add("World");
+        HelloWorld.Add(" I am a gay");
+
+        //Player
         Texture2D tex = Content.Load<Texture2D>("player");
-        oi = new(tex);
-        Scene.AddChild(oi);
-        
-        hey = new(Content.Load<Texture2D>("test"));
-        hey.Position += new Vector2(20, 0);
-        oi.Layer = LayerEnum.Background;
-        cam = new();
+        pl = new(tex, Vector2.Zero, Vector2.Zero);
+        Scene.AddChild(pl);
+
+        //Test
+        hey = new(tex);
+        hey.Position += new Vector2(300, 0);
         Scene.AddChild(hey);
-        oi.AddChild(cam);
+
+        //Camera
+        cam = new();
+        pl.AddChild(cam); // TODO need to do this inside player, but since its a quick way ill allow it
+
+        //collider
+        Collider col = new Collider(new(120, 120), null, Content.Load<Texture2D>("test"));
+        hey.AddChild(col);
+
+        //dialogue + trigger
+        Trigger t = new(col);
+        hey.AddChild(t);
+
+
+
     }
 
     protected override void Update(GameTime gameTime)

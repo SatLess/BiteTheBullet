@@ -1,1 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/File.spritefont","C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/bin/DesktopGL/Default.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21529,0,1963474
+"C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/test.png","C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/bin/DesktopGL/test.xnb","TextureProcessor","Texture2DContent",380,57685,0,0608272
