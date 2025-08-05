@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/Elevado.png</File>
+    <File>C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/File.spritefont</File>
     <File>C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/player.png</File>
     <File>C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/png.png</File>
     <File>C:/Users/spiri/Desktop/2025 Projects/BiteTheBullet/Content/rpg.png</File>
@@ -12,6 +13,7 @@
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
+    <File>Default.spritefont</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

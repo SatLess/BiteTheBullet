@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BiteTheBullet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c3fb57c4384a51bdbef338bbd64b636609f19a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23e7c44658d37133a1adca0cc340baba9554d3da")]
 [assembly: System.Reflection.AssemblyProductAttribute("BiteTheBullet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BiteTheBullet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

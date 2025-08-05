@@ -87,6 +87,7 @@ public class Node
         _removedChildren.Add(child);
     }
     public virtual void Load() { }
+    public virtual void OnRemove() { }
     public virtual void Draw(float deltaTime)
     {
         foreach (var item in _children)
@@ -103,6 +104,7 @@ public class Node
 
         foreach (var child in _removedChildren)
         {
+            child.OnRemove();
             _children.Remove(child);
         }
         if(_removedChildren.Count != 0) _removedChildren.Clear();
