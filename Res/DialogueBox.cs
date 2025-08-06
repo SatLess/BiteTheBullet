@@ -50,7 +50,7 @@ namespace BiteTheBullet
         public DialogueBox(List<string> lines): base()
         {
             this._lines = lines;
-            this.font = Core.Content.Load<SpriteFont>("Default");
+            this.font = Core.Content.Load<SpriteFont>("Arial");
         }
 
     }

@@ -13,4 +13,13 @@ namespace BiteTheBullet
         Player,
         
     }
+
+    [Flags]
+    public enum CollisionLayers
+    {
+        Default,
+        Player,
+        Trigger = 1 << 1
+    }
+
 }

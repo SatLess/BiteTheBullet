@@ -6,21 +6,6 @@ using System.Diagnostics;
 
 namespace BiteTheBullet
 {
-    public struct CollisionInfo
-    {
-        /*  Note: you can check both horz and vert movement with one Data;
-         *  000 - No collision info
-         *  0X1 - Horizontal from the right
-         *  1X1 - Horizontal from the left
-         *  01X - Vertical from the right
-         *  11X - Vertical from the left
-         */
-        public uint Data;
-        public const uint NONE = 0b_000;
-        public const uint DIRECTION = 0b_100;
-        public const uint HORIZONTAL = 0b_001;
-        public const uint VERTICAL = 0b_010;
-    }
     public class Collider : Node
     {
         public Vector2 Size = Vector2.Zero;
@@ -30,9 +15,11 @@ namespace BiteTheBullet
         public float Right => GlobalPosition.X + Size.X;
 
         public Texture2D DebugTexture = null;
+        public new CollisionLayers Layer = CollisionLayers.Default;
+        public new CollisionLayers Mask = CollisionLayers.Default;
 
         //private List<Collider> _colliders;
-        
+
         static public List<Collider> SceneColliders = new(); //May move this in the future TODO
         static public List<Collider> RemovedColliders = new();
 
@@ -76,7 +63,7 @@ namespace BiteTheBullet
         {
             foreach (var item in SceneColliders)
             {
-                if (item == this) continue;
+                if (item == this || !Mask.HasFlag(item.Layer)) continue;
                 if (IsTouchingLeft(item, offset) || IsTouchingRight(item, offset)) return true;
             }
             return false;
@@ -86,7 +73,7 @@ namespace BiteTheBullet
         {
             foreach (var item in SceneColliders)
             {
-                if (item == this) continue;
+                if (item == this || !Mask.HasFlag(item.Layer)) continue;
                 if (IsTouchingTop(item, offset) || IsTouchingBottom(item, offset)) return true;
             }
             return false;
